@@ -1,5 +1,7 @@
 const express = require("express");
 const postRouter = require("./router/postRouter");
+const tagRouter = require("./router/tagRouter");
+const categoryRouter = require("./router/categoryRouter");
 const app = express();
 
 require("dotenv").config();
@@ -12,6 +14,11 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.use('/posts', postRouter);
+
+app.use('/categories', categoryRouter)
+
+app.use('/tags', tagRouter)
+
 
 app.listen(port, () => {
     console.log(`Server http://localhost:${port}`)

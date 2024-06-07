@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { create, index, show, update, destroy } = require('../controllers/posts.js');
+const { create, index, show, update, destroy } = require('../controllers/categorys.js');
 const validator = require('../middlewares/validator.js')
-const bodyData = require('../validations/posts.js')
+const bodyData = require('../validations/category.js')
 
 router.post('/', validator(bodyData), create)
 
