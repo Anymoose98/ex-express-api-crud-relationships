@@ -1,5 +1,4 @@
 const { PrismaClient } = require("@prisma/client");
-const { connect } = require("../router/postRouter");
 const prisma = new PrismaClient();
 
 // Creare un nuovo post
@@ -13,7 +12,7 @@ const create = async (req, res) => {
         content,
         published: published ? true : false,
         tags: {
-            connect: tags.map(id => ({ id }))
+            connect: tags ? tags.map(id => ({ id })) : []
         }
     };
     if (category) {
@@ -37,7 +36,7 @@ const index = async (req, res) => {
 
         if (published === 'false') {
             where.published = false;
-        } else {
+        } else if(published === 'true') {
             where.published = true;
         }
 

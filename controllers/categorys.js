@@ -10,7 +10,7 @@ const create = async (req, res) => {
 
     try {
         const category = await prisma.category.create({ data });
-        res.status(200) - RTCRtpSender(category);
+        res.status(200) .json(category);
     } catch (err) {
         console.log("Qualcosa è andato storto", err);
         res.status(500).json({ error: "Qualcosa è andato storto" });

@@ -10,7 +10,7 @@ const create = async (req, res) => {
 
     try {
         const tags = await prisma.tag.create({ data });
-        res.status(200) - RTCRtpSender(tags);
+        res.status(200) .json(tags);
     } catch (err) {
         console.log("Qualcosa è andato storto", err);
         res.status(500).json({ error: "Qualcosa è andato storto" });
